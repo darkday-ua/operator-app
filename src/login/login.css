@@ -1,0 +1,47 @@
+.AppLogin-login{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 4;
+}
+
+.AppLogin-Input{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+AppLogin-Input-Cred{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: larger;
+  }
+
+
+.AppLogin-switch-row{
+    grid-row-start: 4;
+    grid-row-end: 5;
+    
+}
+.AppLogin-switch{
+    margin-left:10px;
+    margin-right:10px;
+}
+
+.AppLogin-wrapper{
+    display:grid;
+    
+}
+.Hidden{
+    display: none;
+}

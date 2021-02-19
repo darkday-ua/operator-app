@@ -1,0 +1,36 @@
+.AppMenu-wrapper{
+    position: absolute;
+    top:60px;
+    border-radius: 3px 3px;
+    margin-left:5px;
+    margin-top:5px;
+    display:grid;    
+    grid-template-columns: 10fr 1fr;    
+    grid-template-rows: minmax(20px,60px);
+    gap:5px;
+    padding: 5px;    
+}
+.hidden{
+    display:none;
+}
+.AppMenu-close{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    cursor:pointer;
+    font-size: 1.5em;
+    margin-right: 5px;
+    margin-top:-0.2em;
+    
+}
+.AppMenu-element{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    cursor:pointer;
+    font-size: 1.5em;
+    border: 2px solid;
+    font-size: 0.9em;
+    border-radius: 3px 3px;
+}
+

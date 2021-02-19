@@ -1,0 +1,16 @@
+.MenuButton-wrapper{
+    border-radius: 2px 2px;
+    border-width: 1px;    
+}
+
+.dark{
+    border-color: white;
+    background-color: dimgray;
+    color:white;
+}
+
+.light{
+    border-color:#404040;
+    background-color:white;
+    color:#404040;
+}

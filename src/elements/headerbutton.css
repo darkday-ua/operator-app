@@ -1,0 +1,23 @@
+.HeaderButton-wrapper{
+    border-radius: 3px 3px;
+    border: 2px solid;    
+    cursor: pointer;    
+    font-weight: bolder;        
+    padding: 0px 5px 5px 5px;
+    line-height:1.5em ;
+}
+
+.HeaderButton-font-1{
+    font-size: 0.5em;
+    
+}
+
+.HeaderButton-font-2{
+    font-size: 0.75em;
+    
+}
+
+.HeaderButton-font-3{
+    font-size: 1em;
+    
+}

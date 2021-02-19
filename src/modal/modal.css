@@ -1,0 +1,59 @@
+.AppModal-wrapper {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    display: grid;
+    grid-template-columns: 10fr 1fr;
+    grid-template-rows: repeat(3,auto);
+    height: 60%;
+    width: 60%;    
+
+}
+
+.AppModal-title {
+    grid-column-start: 1;
+    grid-column-end: 10;
+    grid-row-start: 1;
+    grid-row-end: 1;
+
+}
+
+.AppModal-close {
+    grid-column-start: 10;
+    grid-column-end: 11;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    cursor: pointer;
+    font-size: 1em;
+    margin-right: 5px;
+}
+
+.AppModal-button {
+    display: flex;
+    align-self: center;
+    font-size: 0.8em;
+}
+.AppModal-content{
+    display: flex;
+    overflow-x: hidden;
+    grid-column-start: 1;
+    grid-column-end: 11;
+    overflow-y: auto;
+    margin:10px;
+    justify-content: center;
+}
+
+.AppModal-buttons {
+    grid-column-start: 1;
+    grid-column-end: 11;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.row-1 {
+    justify-content: center;
+}
+
+.row-2 {
+    justify-content: space-evenly;
+}

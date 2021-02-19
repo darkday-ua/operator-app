@@ -1,0 +1,9 @@
+.AppContent-wrapper{
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 5;
+    display: grid;
+    min-height: 600px;
+    height:calc(100% - 60px);
+}
