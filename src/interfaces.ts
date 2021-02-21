@@ -18,3 +18,4 @@ export interface IModalContext {
 }
 
 export interface ICredentials { user: '', password: '', qrToken: '' }
+export interface IQRScanResult { status: boolean, qrToken: string|null, error: string };
