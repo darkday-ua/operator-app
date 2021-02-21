@@ -14,7 +14,9 @@ export const AppStateContext = React.createContext(
 export const ModalStateContext = React.createContext(
     {        
         modalState: false,
-        modalContext: {} as IModalContext
+        modalContext: {} as IModalContext,
+        modalStatus:''
     }
 );
 
+export const LoginServiceContext = React.createContext<() => Promise<void>>(Promise.reject);

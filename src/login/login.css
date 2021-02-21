@@ -4,6 +4,10 @@
     grid-row-start: 1;
     grid-row-end: 4;
 }
+.AppLogin-status{
+    color:red;
+    font-size: 0.5em;
+}
 
 .AppLogin-Input{
     grid-column-start: 1;
@@ -45,3 +49,4 @@ input {
 .Hidden{
     display: none;
 }
+

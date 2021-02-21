@@ -2,8 +2,10 @@ import React from "react";
 import { useState } from "react";
 import "./App.css";
 import "./common.css";
-import { IModalContext } from "./interfaces";
+import { IModalContext,ICredentials } from "./interfaces";
 import { AppStateContext, ModalStateContext } from "./state/appstate";
+import {httpPost} from './service/http'
+import {urls} from './service/config'
 
 import AppHeader from "./header/header";
 import AppMenu from "./menu/menu";
@@ -16,7 +18,7 @@ const baseFontSize: number = fontSizes[3];
 const THEMES = { DARK: "dark", LIGHT: "light" };
 
 // ------------ mock
-const loggedUser = true;
+const isUserLogged = true;
 const loggedUserData = { fio: "Несправжній Віктор", id: 666 };
 //--------------
 
@@ -26,13 +28,18 @@ function App() {
   const [modalState, setmodalState] = useState(false);
   const [modalContext, setModalContext] = useState({} as IModalContext);
   const [primaryFontSize, setFontSize] = useState(baseFontSize);
+  const [modalStatus, setmodalStatus] = useState('');
+  //const [credentials,setCredentials]=useState({} as ICredentials);
+  let credentials = {} as ICredentials;
 
   const toggleMenu = () => {
     setMenuState(!menuState);
   };
+
   const toggleTheme = () => {
     theme === THEMES.DARK ? setTheme(THEMES.LIGHT) : setTheme(THEMES.DARK);
   };
+
   const toggleFontSize = () => {
     primaryFontSize < fontSizes.length
       ? setFontSize(primaryFontSize + 1)
@@ -42,12 +49,25 @@ function App() {
   const destroyModal = () => {
     setmodalState(false);
   };
-  const processLogin = (result: any) => {
-    if (result.qrToken) alert("proceed login with QRToken " + result.qrToken);
-    else
-      alert(
-        "proceed login with Credentials " + result.login + " " + result.password
-      );
+
+  const processLogin = async (result: any) => {
+    let loginResult:any=null;
+    if (credentials.qrToken) 
+      {
+        setmodalStatus("proceed login with QRToken " + credentials.qrToken);
+      loginResult = await httpPost(urls.qr_login,JSON.stringify({qr_token:credentials.qrToken}),'');        
+      }
+    else {     
+      setmodalStatus("proceed login with Credentials " + credentials.user + " " + credentials.password);
+      loginResult = await httpPost(urls.login,JSON.stringify({login:credentials.user,password:credentials.password}),'');
+    }
+    console.log(loginResult);
+  };
+
+  const handleResult = (result: ICredentials) => {
+    //setCredentials(result as ICredentials);
+    credentials=result;    
+    setmodalStatus('');
   };
 
 const createModal = (
@@ -56,9 +76,9 @@ const createModal = (
   handleCancel: any
 ) => {
   setMenuState(false);
-  context.handleCancel = handleCancel;
-  context.handleOk = handleOk;
-  // context.handleResult = handleResult;
+  context.handlers.handleCancel = handleCancel;
+  context.handlers.handleOk = handleOk;
+  context.handlers.handleResult= handleResult;
   setModalContext(context);
   setmodalState(true);
 };
@@ -79,7 +99,7 @@ const helpPage = () => {
 
 return (
   <AppStateContext.Provider
-    value={{ theme, menuState, loggedUser, loggedUserData }}
+    value={{ theme, menuState, loggedUser: isUserLogged, loggedUserData }}
   >
     <div className={`OperatorApp-wrapper font-${primaryFontSize} ${theme}`}>
       <AppHeader
@@ -89,7 +109,7 @@ return (
         onTasksTabClick={tasksTab}
       />
 
-      <ModalStateContext.Provider value={{ modalState, modalContext }}>
+      <ModalStateContext.Provider value={{ modalState, modalContext,modalStatus }}>
         <AppModal></AppModal>
       </ModalStateContext.Provider>
       <AppMenu

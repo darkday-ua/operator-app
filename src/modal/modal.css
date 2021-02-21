@@ -1,5 +1,14 @@
 .AppModal-wrapper {
     position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;    
+    background-color:rgba(0, 0, 0, 0.5);
+}
+
+.AppModal-dialog {
+    position: absolute;
     top: 20%;
     left: 20%;
     display: grid;
@@ -9,6 +18,7 @@
     width: 60%;    
 
 }
+
 
 .AppModal-title {
     grid-column-start: 1;

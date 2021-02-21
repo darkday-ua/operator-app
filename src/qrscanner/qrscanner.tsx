@@ -3,7 +3,7 @@ import { useState } from "react";
 import './qrscanner.css';
 
 const externalScanFunction=()=>{
-    return {status:false,qrToken:'Some mock token',error:'Some mock error'};
+    return {status:true,qrToken:'Some mock token',error:'Some mock error'};
 }
 
 function AppQRScanner(props:any) {    
@@ -12,7 +12,7 @@ function AppQRScanner(props:any) {
       props.handleScanResult(result);
   }
     return (
-    <div onClick={returnScanResult}>
+    <div onClick={returnScanResult} className="QRScanner-mock">
         Place for QR Scanner. Click to init mock result.
     </div>
   );
