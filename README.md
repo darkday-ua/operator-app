@@ -1,3 +1,19 @@
+Привет, задача №1
+Необходимо добавить в проект реализацию сканера QR кода
+Код должен вызываться в компоненте AppQRScanner
+Сейчас его эмулирует функция 
+const externalScanFunction=()=>{
+    return {status:true,qrToken:'Some mock token',error:'Some mock error'};
+}
+Соответственно, реальный код должен при отображении компонента показывать окно камеры (желательно добавить возможность переключения кнопкой по циклу, если камер больше одной) и при считывании кода - возвращать объект согласно интерфейсу
+IQRScanResult { status: boolean, qrToken: string, error: string };
+где status - True, если считан некий QRкод и его значение разобрано в строку
+qrToken - считанная строка
+error - описание ошибки если считывание не удалось
+Никаких дополнительных кнопок для начала/заверщения чтения делать не нужно.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
