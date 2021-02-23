@@ -1,5 +1,5 @@
 import React from 'react';
-// import { useState } from "react";
+import { useState } from "react";
 import './qrscanner.css';
 import {IQRScanResult} from '../interfaces';
 import QrReader from 'react-qr-reader';
