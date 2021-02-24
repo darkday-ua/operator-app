@@ -4,7 +4,6 @@ import './qrscanner.css';
 import {IQRScanResult} from '../interfaces';
 import QrReader from 'react-qr-reader';
 
-
 function AppQRScanner(props:any) { 
 
   const handleScan = (data:any) => {
